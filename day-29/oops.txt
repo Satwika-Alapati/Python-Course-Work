@@ -1,0 +1,356 @@
+Object-Oriented Programming (OOP)
+
+OOP stands for Object-Oriented Programming. It is a programming paradigm that organizes a program using objects and classes. An object contains data (attributes) and functions (methods) that operate on that data.
+
+OOP is mainly used to make programs reusable, organized, secure, flexible, and easy to maintain.
+
+Why Do We Need OOP?
+In procedural programming, as the size of the application increases, the code can become difficult to manage because data and functions may be spread throughout the program.
+
+OOP solves these problems by grouping related data and functions together inside objects.
+
+The main advantages of OOP are:
+Code Reusability – Existing code can be reused using inheritance.
+Data Security – Data can be protected using encapsulation.
+Easy Maintenance – Large programs can be divided into smaller classes.
+Flexibility – Polymorphism allows the same method to behave differently.
+Reduced Code Duplication – Common functionality can be reused.
+Real-World Representation – Real-world entities can be represented as objects.
+
+Class
+A class is a blueprint or template for creating objects.
+
+It defines the properties and behaviors that objects will have.
+
+For example, if we create a Student class, it can contain:
+
+Name
+Age
+Roll number
+Marks
+
+It can also contain methods such as:
+
+study()
+write_exam()
+display_details()
+
+Example:
+
+class Student:
+    def study(self):
+        print("Student is studying")
+
+Here, Student is a class.
+
+Object
+An object is an instance of a class.
+
+In simple words:
+
+Class → Blueprint
+Object → Real entity created from the blueprint
+
+Example:
+class Student:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+student1 = Student("Ravi", 20)
+student2 = Student("Priya", 21)
+
+Here:
+
+Student is the class.
+student1 is an object.
+student2 is another object.
+
+A single class can be used to create multiple objects.
+
+Features of OOP
+The four major features or pillars of OOP are:
+Encapsulation
+Inheritance
+Polymorphism
+Abstraction
+
+1. Encapsulation
+Encapsulation means wrapping data and methods together inside a class and controlling access to the data.
+
+It helps protect the internal data of an object from direct access.
+
+Real-World Example: Instagram
+Consider Instagram. Your account contains information such as:
+
+Username
+Password
+Email
+Followers
+Messages
+Posts
+
+You cannot directly access Instagram's internal database and change your password or followers.
+
+Instead, Instagram provides controlled operations such as:
+
+Login
+Change Password
+Follow
+Unfollow
+Like
+Comment
+Send Message
+
+For example, when you change your Instagram password, you use the Change Password option instead of directly modifying the password stored in the database.
+
+This means the internal data is protected and can be accessed or modified through controlled operations.
+
+Python Example
+class InstagramAccount:
+    def __init__(self, username, password):
+        self.username = username
+        self.__password = password
+
+    def change_password(self, new_password):
+        self.__password = new_password
+        print("Password changed successfully")
+
+account = InstagramAccount("satvika", "12345")
+
+account.change_password("67890")
+
+Here, __password is treated as a private variable.
+
+Advantages of Encapsulation
+Protects data
+Provides controlled access
+Improves security
+Makes code easier to maintain
+
+Interview definition:
+Encapsulation is the process of bundling data and methods into a single unit and restricting direct access to the internal data.
+
+2. Inheritance
+Inheritance is a feature where one class acquires the properties and methods of another class.
+
+The class that provides the properties and methods is called the parent class or base class.
+
+The class that inherits them is called the child class or derived class.
+
+Real-World Example: LinkedIn
+Consider LinkedIn. There can be different types of users:
+
+                 LinkedIn User
+                      |
+          -------------------------
+          |           |           |
+       Student     Employee    Recruiter
+
+A general LinkedIn user may have common features such as:
+
+Name
+Profile
+Email
+Profile picture
+Connections
+Messaging
+
+A Student can additionally have:
+College
+Education
+Skills
+
+An Employee can have:
+Company
+Job title
+Work experience
+
+A Recruiter can have:
+Job postings
+Candidate search
+Hiring features
+
+The different types of users can reuse the common features of the general LinkedIn user.
+Python Example
+class LinkedInUser:
+    def create_profile(self):
+        print("Profile created")
+
+    def send_message(self):
+        print("Message sent")
+
+
+class Student(LinkedInUser):
+    def add_education(self):
+        print("Education added")
+
+
+student = Student()
+
+student.create_profile()
+student.send_message()
+student.add_education()
+
+Here, Student inherits the methods of LinkedInUser.
+
+Advantages of Inheritance
+Provides code reusability
+Reduces code duplication
+Makes programs easier to maintain
+Helps establish relationships between classes
+
+Interview definition:
+Inheritance is a mechanism through which a child class acquires the properties and methods of a parent class.
+
+3. Polymorphism
+Polymorphism means "many forms."
+
+In OOP, polymorphism allows the same method or operation to perform different actions depending on the object.
+
+Real-World Example: YouTube
+
+Consider YouTube. There are different types of content:
+Music videos
+Live streams
+YouTube Shorts
+Educational videos
+Movies
+
+We can imagine a common operation:
+
+play()
+
+But the behavior can be different depending on the type of content.
+
+For example:
+Music Video → Plays music and video
+Live Stream → Plays live content
+Short → Plays short-form content
+
+The operation is the same:
+
+play()
+
+but its behavior is different.
+
+Python Example
+class MusicVideo:
+    def play(self):
+        print("Playing music video")
+
+
+class LiveStream:
+    def play(self):
+        print("Playing live stream")
+
+
+class Short:
+    def play(self):
+        print("Playing YouTube Short")
+
+
+videos = [MusicVideo(), LiveStream(), Short()]
+
+for video in videos:
+    video.play()
+
+Output:
+Playing music video
+Playing live stream
+Playing YouTube Short
+
+The same method:
+
+video.play()
+
+produces different results depending on the object.
+
+Advantages of Polymorphism
+Provides flexibility
+Makes code easier to extend
+Allows the same interface to work with different objects
+Reduces complex conditional statements
+
+Interview definition:
+Polymorphism allows the same method or interface to have different behaviors depending on the object.
+
+4. Abstraction
+Abstraction means hiding unnecessary implementation details and showing only the essential features to the user.
+
+Real-World Example: Mobile Phone
+Consider a mobile phone.
+
+You can use your phone to:
+
+Make calls
+Send messages
+Take photos
+Play music
+Open applications
+Browse the internet
+
+When you make a phone call, you simply:
+
+Open Phone App
+       ↓
+Select Contact
+       ↓
+Press Call
+
+You don't need to know the complicated internal processes such as:
+
+How the signal is transmitted
+How the network connects the call
+How the phone communicates with the mobile tower
+How the data is processed internally
+
+All these implementation details are hidden from you.
+
+You only see the necessary functionality.
+
+Python Example
+from abc import ABC, abstractmethod
+
+class Phone(ABC):
+
+    @abstractmethod
+    def call(self):
+        pass
+
+
+class Smartphone(Phone):
+
+    def call(self):
+        print("Calling a contact")
+
+
+phone = Smartphone()
+phone.call()
+
+Here, the user only needs to know that the phone can perform the call() operation. The internal implementation is hidden.
+
+Advantages of Abstraction
+Hides implementation complexity
+Shows only necessary information
+Makes programs easier to use
+Improves program design
+Reduces complexity
+
+Interview definition:
+
+Abstraction is the process of hiding implementation details and exposing only the essential functionality.
+
+Encapsulation vs Abstraction
+
+These two concepts are often confusing.
+
+Encapsulation focuses on protecting and controlling access to data.
+
+Abstraction focuses on hiding unnecessary implementation details.
+
+Easy way to remember:
+
+Encapsulation → How do I protect the data?
+
+Abstraction → What should I show to the user?
